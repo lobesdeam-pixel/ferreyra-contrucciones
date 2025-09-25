@@ -8,86 +8,75 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-:root {
-  --primary: #0b3a6e;
-  --dark: #0a2540;
-  --light: #f7fafc;
-  --accent: #ffd166;
+:root { --primary:#0b3a6e; --dark:#0a2540; --light:#f7fafc; --accent:#ffd166; }
+*{box-sizing:border-box} html,body{margin:0;overflow-x:hidden}
+body{font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--dark);background:#fff}
+.container{width:min(1100px,92vw);margin:0 auto}
+h1,h2,h3{margin:0 0 .5rem} h2{font-size:clamp(1.6rem,2vw + .8rem,2.2rem)}
+
+.hero{background:linear-gradient(180deg,#114b86 0%,#0b3a6e 60%,#072040 100%);color:#fff;padding:3.2rem 0 2.6rem}
+.hero-inner{width:min(1100px,92vw);margin:0 auto}
+.brand{display:grid;grid-template-columns:120px 1fr;gap:1rem;align-items:center}
+.logo{width:100%;border-radius:.5rem;box-shadow:0 10px 24px rgba(0,0,0,.35)}
+.brand-text h1{font-weight:800;font-size:clamp(1.7rem,2.2vw + 1rem,2.6rem);letter-spacing:.5px}
+.brand-text h1 span{color:var(--accent)}
+.brand-text p{opacity:.95;line-height:1.5}
+.cta-group{display:flex;gap:.6rem;margin-top:1rem;flex-wrap:wrap}
+.btn{display:inline-block;padding:.85rem 1rem;border-radius:.6rem;font-weight:700;text-decoration:none}
+.btn.primary{background:var(--accent);color:#111}
+.btn.ghost{border:1.5px solid rgba(255,255,255,.6);color:#fff}
+
+.confidence{background:#fff;padding:2.1rem 0}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.card{background:var(--light);border:1px solid #e6edf5;padding:1rem;border-radius:.8rem;box-shadow:0 4px 14px rgba(10,37,64,.06)}
+.card h3{color:var(--primary)}
+
+.services{padding:2.2rem 0;background:#fff}
+.service-list{display:grid;gap:.5rem;padding-left:1.1rem}
+
+.gallery{padding:2.4rem 0;background:var(--light)}
+.filters{display:flex;gap:.5rem;margin:.5rem 0 1rem;flex-wrap:wrap}
+.chip{border:1px solid #d6e0ea;background:#fff;padding:.5rem .8rem;border-radius:999px;cursor:pointer;font-weight:600}
+.chip.active{background:var(--accent);border-color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem}
+.item{border-radius:.6rem;overflow:hidden;background:#fff;border:1px solid #e5ecf3;box-shadow:0 8px 20px rgba(10,37,64,.08)}
+.item img{width:100%;height:220px;object-fit:cover;display:block}
+.item figcaption{padding:.6rem .7rem;font-size:.9rem;color:#334}
+
+.center{text-align:center;margin-top:1.1rem}
+
+.contact{padding:2.2rem 0;background:#fff}
+.contact-card{background:var(--light);border:1px solid #e6edf5;padding:1rem;border-radius:.8rem;max-width:680px}
+.contact a{color:var(--primary)}
+
+.footer{background:#081e36;color:#c9d7e7;padding:1.2rem 0;text-align:center}
+
+.wsp{position:fixed;right:18px;bottom:18px;background:#25D366;color:#fff;width:56px;height:56px;border-radius:50%;
+display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rgba(0,0,0,.25);text-decoration:none}
+.wsp svg{width:28px;height:28px}
+
+.about{padding:2.0rem 0;background:#fff}
+.testimonials{padding:2.0rem 0;background:var(--light)}
+.testi-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+blockquote{background:#fff;border:1px solid #e6edf5;padding:1rem;border-radius:.8rem;box-shadow:0 6px 16px rgba(10,37,64,.06)}
+blockquote footer{margin-top:.6rem;color:#4a5b6c;font-weight:600}
+
+.form{display:grid;gap:.6rem;margin-top:.8rem}
+.form .row{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.form input,.form select,.form textarea{width:100%;padding:.7rem .8rem;border:1px solid #cfd9e3;border-radius:.6rem;font-size:1rem}
+.form button{width:fit-content}
+
+@media (max-width:900px){
+  .brand{grid-template-columns:90px 1fr}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .item img{height:180px}
 }
-* { box-sizing: border-box; }
-html, body { margin: 0; overflow-x: hidden; }
-body { font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color: var(--dark); background: #fff; }
-.container { width: min(1100px, 92vw); margin: 0 auto; }
-h1, h2, h3 { margin: 0 0 .5rem; }
-h2 { font-size: clamp(1.6rem, 2vw + .8rem, 2.2rem); }
-.hero { position: relative; background: radial-gradient(1200px 400px at 10% 0%, #114b86 0%, var(--primary) 60%, #072040 100%); color: #fff; padding: 4.5rem 0 5.5rem; clip-path: ellipse(140% 100% at 50% 0%); }
-.hero-inner { width: min(1100px, 92vw); margin: 0 auto; }
-.brand { display: grid; grid-template-columns: 140px 1fr; gap: 1.25rem; align-items: center; }
-.logo { width: 100%; border-radius: .5rem; box-shadow: 0 10px 24px rgba(0,0,0,.35); }
-.brand-text h1 { font-weight: 800; font-size: clamp(1.8rem, 2.5vw + 1rem, 3rem); letter-spacing: .5px; }
-.brand-text h1 span { color: var(--accent); }
-.brand-text p { opacity:.95; line-height: 1.5; }
-.zones { margin-top:.25rem; }
-.cta-group { display:flex; gap:.75rem; margin-top: 1rem; flex-wrap: wrap; }
-.btn { display:inline-block; padding:.9rem 1.1rem; border-radius:.6rem; font-weight:700; text-decoration:none; }
-.btn.primary { background: var(--accent); color:#111; }
-.btn.ghost { border:1.5px solid rgba(255,255,255,.6); color:#fff; }
-.scroll-down { position:absolute; left:50%; bottom: 18px; transform:translateX(-50%); color:rgba(255,255,255,.8); text-decoration:none; font-size: 2rem; }
-
-.confidence { background: #fff; padding: 2.8rem 0; }
-.features { display:grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-.card { background: var(--light); border:1px solid #e6edf5; padding: 1rem; border-radius: .8rem; box-shadow: 0 4px 14px rgba(10,37,64,.06); }
-.card h3 { color: var(--primary); }
-
-.services { padding: 2.6rem 0; background: #fff; }
-.service-list { display:grid; gap:.5rem; padding-left: 1.1rem; }
-
-.gallery { padding: 2.6rem 0; background: var(--light); }
-.filters { display:flex; gap:.5rem; margin: .5rem 0 1rem; flex-wrap:wrap; }
-.chip { border:1px solid #d6e0ea; background:#fff; padding:.5rem .8rem; border-radius: 999px; cursor:pointer; font-weight:600; }
-.chip.active { background: var(--accent); border-color: var(--accent); }
-.grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; }
-.item { border-radius: .6rem; overflow:hidden; background:#fff; border:1px solid #e5ecf3; box-shadow: 0 8px 20px rgba(10,37,64,.08); }
-.item img { width: 100%; height: 220px; object-fit: cover; display:block; }
-.item figcaption { padding:.6rem .7rem; font-size:.9rem; color:#334; }
-
-.center { text-align:center; margin-top:1.3rem; }
-
-.contact { padding: 2.6rem 0; background:#fff; }
-.contact-card { background: var(--light); border:1px solid #e6edf5; padding: 1rem; border-radius: .8rem; max-width: 680px; }
-.contact a { color: var(--primary); }
-
-.footer { background:#081e36; color:#c9d7e7; padding: 1.2rem 0; text-align:center; }
-.footer a { color:#fff; }
-
-.wsp { position: fixed; right: 18px; bottom: 18px; background: #25D366; color: #fff; width: 56px; height: 56px; border-radius: 50%; display:flex; align-items:center; justify-content:center; box-shadow: 0 10px 20px rgba(0,0,0,.25); text-decoration:none; }
-.wsp svg { width: 28px; height: 28px; }
-
-.about { padding: 2.2rem 0; background:#fff; }
-.testimonials { padding: 2.2rem 0; background: var(--light); }
-.testi-wrap { display:grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-blockquote { background:#fff; border:1px solid #e6edf5; padding: 1rem; border-radius:.8rem; box-shadow: 0 6px 16px rgba(10,37,64,.06); }
-blockquote footer { margin-top:.6rem; color:#4a5b6c; font-weight:600; }
-
-.form { display: grid; gap:.6rem; margin-top: .8rem; }
-.form .row { display:grid; grid-template-columns: 1fr 1fr; gap:.6rem; }
-.form input, .form select, .form textarea { width:100%; padding:.7rem .8rem; border:1px solid #cfd9e3; border-radius:.6rem; font-size:1rem; }
-.form button { width: fit-content; }
-
-/* --- Mobile fixes --- */
-@media (max-width: 900px) {
-  .brand { grid-template-columns: 100px 1fr; }
-  .grid { grid-template-columns: repeat(2, 1fr); }
-  .item img { height: 180px; }
+@media (max-width:520px){
+  .cta-group .btn{width:100%;text-align:center}
+  .grid{grid-template-columns:1fr;gap:.9rem}
 }
-@media (max-width: 520px) {
-  .hero { clip-path: none; padding: 3.2rem 0 2.6rem; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px; }
-  .cta-group .btn { width: 100%; text-align: center; }
-  .grid { grid-template-columns: 1fr; gap: .9rem; }
-}
-@supports (padding: max(0px)) {
-  /* iPhone safe area (notch) */
-  body { padding-left: max(0px, env(safe-area-inset-left)); padding-right: max(0px, env(safe-area-inset-right)); }
+@supports (padding:max(0px)){
+  body{padding-left:max(0px,env(safe-area-inset-left));padding-right:max(0px,env(safe-area-inset-right))}
 }
 </style>
 </head>
@@ -107,25 +96,15 @@ blockquote footer { margin-top:.6rem; color:#4a5b6c; font-weight:600; }
       </div>
     </div>
   </div>
-  <a href="#galeria" class="scroll-down" aria-label="Ir a galería">↓</a>
 </header>
 
 <section id="confianza" class="confidence">
   <div class="container">
     <h2>¿Por qué elegirnos?</h2>
     <div class="features">
-      <div class="card">
-        <h3>Especialistas en seco</h3>
-        <p>Tabiques, cielorrasos y detalles en <strong>Durlock</strong>. También realizamos <strong>Steel Frame</strong> con precisión y terminaciones premium.</p>
-      </div>
-      <div class="card">
-        <h3>Pinturas que duran</h3>
-        <p>Aplicamos sistemas completos de <strong>pintura</strong> para interior y exterior, con preparación de superficies y elección de productos adecuados.</p>
-      </div>
-      <div class="card">
-        <h3>Decoración y texturas</h3>
-        <p>Revestimientos y <strong>revoques texturados</strong> que modernizan tus espacios. Asesoramiento en <strong>decoración de interiores</strong>.</p>
-      </div>
+      <div class="card"><h3>Especialistas en seco</h3><p>Tabiques, cielorrasos y detalles en <strong>Durlock</strong>. También realizamos <strong>Steel Frame</strong> con precisión y terminaciones premium.</p></div>
+      <div class="card"><h3>Pinturas que duran</h3><p>Aplicamos sistemas completos de <strong>pintura</strong> para interior y exterior, con preparación de superficies y elección de productos adecuados.</p></div>
+      <div class="card"><h3>Decoración y texturas</h3><p>Revestimientos y <strong>revoques texturados</strong> que modernizan tus espacios. Asesoramiento en <strong>decoración de interiores</strong>.</p></div>
     </div>
   </div>
 </section>
@@ -289,36 +268,32 @@ blockquote footer { margin-top:.6rem; color:#4a5b6c; font-weight:600; }
 </a>
 
 <script>
-// Filter gallery
-const chips = document.querySelectorAll('.chip');
-const items = document.querySelectorAll('.item');
-chips.forEach(chip => chip.addEventListener('click', () => {
-  chips.forEach(c=>c.classList.remove('active'));
-  chip.classList.add('active');
-  const f = chip.dataset.filter;
-  items.forEach(it => {
-    const cat = it.dataset.cat;
-    it.style.display = (f==='all'|| f===cat) ? '' : 'none';
+// Filtros
+document.querySelectorAll('.chip').forEach(chip=>{
+  chip.addEventListener('click',()=>{
+    document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+    chip.classList.add('active');
+    const f = chip.dataset.filter;
+    document.querySelectorAll('.item').forEach(it=>{
+      it.style.display = (f==='all'||it.dataset.cat===f)?'':'none';
+    });
   });
-}));
-
-// Presupuesto form -> WhatsApp
+});
+// Form -> WhatsApp
 const form = document.getElementById('presupuesto-form');
-if (form) {
-  form.addEventListener('submit', (e) => {
+if(form){
+  form.addEventListener('submit',(e)=>{
     e.preventDefault();
     const nombre = document.getElementById('nombre').value.trim();
     const tel = document.getElementById('telefono').value.trim();
     const servicio = document.getElementById('servicio').value;
     const localidad = document.getElementById('localidad').value.trim();
     const detalle = document.getElementById('detalle').value.trim();
-    const msg = encodeURIComponent(`Hola Ferreyra Construcciones, soy ${nombre}.\nServicio: ${servicio}.\nLocalidad: ${localidad}.\nTel: ${tel || '—'}.\nDetalle: ${detalle}`);
-    const url = `https://wa.me/542281500633?text=${msg}`;
-    window.open(url, '_blank');
+    const msg = encodeURIComponent(`Hola Ferreyra Construcciones, soy ${nombre}.\nServicio: ${servicio}.\nLocalidad: ${localidad}.\nTel: ${tel||'—'}.\nDetalle: ${detalle}`);
+    window.open(`https://wa.me/542281500633?text=${msg}`,'_blank');
   });
 }
-
-// Year
+// Año
 document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 </body>
